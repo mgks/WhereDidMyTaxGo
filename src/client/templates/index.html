@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="{{lang}}">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{title}}</title>
+    <meta name="description" content="{{description}}">
+    
+    <!-- RETRO FONT -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
+
+    <!-- Only one CSS file now -->
+    <link rel="stylesheet" href="/assets/styles/style.css">
+</head>
+<body class="theme-{{countryId}}">
+
+    <!-- LAYERS -->
+    <div id="bg-layer"></div>
+    <div id="vignette-layer"></div>
+    <div class="scanlines"></div>
+    <div class="screen-transition" id="transition-curtain"></div>
+
+    <main class="container">
+        
+        <!-- HERO NAV -->
+        <nav class="top-nav" id="hero-nav">
+            <div id="country-switcher" class="custom-dropdown"></div>
+            <div id="lang-switcher" class="custom-dropdown"></div>
+        </nav>
+
+        <!-- HERO SECTION -->
+        <section class="hero" id="hero-section">
+            <div class="title-box">
+                <h1>{{headline}}</h1>
+                <!-- RE-ADDED: Blinking Text -->
+                <p class="blink">{{subheadline_blink}}</p>
+            </div>
+            
+            <div class="input-group pixel-box">
+                <p class="input-label">{{salaryInputLabel}}</p>
+                <div class="input-wrapper">
+                    <span class="currency">{{currencySymbol}}</span>
+                    <input type="number" id="salary-input" placeholder="0" inputmode="numeric">
+                </div>
+                <!-- CTA text comes from JSON now ("BEGIN") -->
+                <button id="calculate-btn">
+                    {{cta}} <span class="btn-icon">⏎</span>
+                </button>
+            </div>
+            
+            <div class="subtext-container">
+                <p class="subtext">{{subtext}}</p>
+            </div>
+        </section>
+
+        <!-- RESULTS SECTION -->
+        <section id="results" class="results hidden">
+            <div class="results-header">
+                <button id="back-btn" class="pixel-btn-small">← BACK</button>
+                <div id="year-switcher" class="custom-dropdown"></div>
+            </div>
+            <div id="breakdown-container"></div>
+        </section>
+    </main>
+
+    <script>
+        window.TAX_DATA = {{DATA_INJECTION}};
+    </script>
+    <script type="module" src="/assets/scripts/app.js"></script>
+</body>
+</html>
