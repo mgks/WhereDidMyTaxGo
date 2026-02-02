@@ -22,16 +22,14 @@
     </h4>
   </p>
 
-  <!-- PREVIEW
+  <!-- PREVIEW -->
   <p>
-    <img width="800" alt="image" src="https://github.com/user-attachments/assets/fbfd6bc1-3616-4f32-816d-51dee8fcdb6b" />
-  </p> -->
+    <img width="800" alt="image" src="https://github.com/user-attachments/assets/4e6d871c-0521-4a8e-a40d-8b9637fba57c" />
+  </p>
 
 </div>
 
-A small, open-source, single-page web app that shows how a government budget translates into **per-person tax spending**.
-
-You enter your *country* and *salary*. No login or personal information required. You stay complete anonymous.
+A small, open-source, single-page web app that shows how a government budget translates into **per-person tax spending**. You enter your *country* and *yearly income*. No login or personal information required. You stay complete anonymous.
   
 It shows, visually and simply, how your tax is split across things like defence, healthcare, infrastructure, welfare, and more.
 No charts for economists. No jargon.
