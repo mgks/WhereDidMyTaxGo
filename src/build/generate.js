@@ -44,10 +44,11 @@ async function build() {
     console.log('📂 Copying Assets...');
     const clientDir = path.join(__dirname, '../client');
     const assetsDir = path.join(DIST_DIR, 'assets');
-    
+
     if (fs.existsSync(path.join(clientDir, 'styles'))) copyDir(path.join(clientDir, 'styles'), path.join(assetsDir, 'styles'));
     if (fs.existsSync(path.join(clientDir, 'scripts'))) copyDir(path.join(clientDir, 'scripts'), path.join(assetsDir, 'scripts'));
-    
+    if (fs.existsSync(path.join(clientDir, 'social'))) copyDir(path.join(clientDir, 'social'), path.join(assetsDir, 'social'));
+
     // Copy Data for runtime fetch (backgrounds, dynamic budgets)
     copyDir(DATA_DIR, path.join(DIST_DIR, 'data'));
 
@@ -123,6 +124,33 @@ async function build() {
             fs.writeFileSync(path.join(outputDir, 'index.html'), html);
             console.log(`   ✅ Generated: ${countryId}/${lang === meta.defaultLanguage ? '' : lang + '/'}index.html`);
         }
+    }
+
+    // 5. Generate Sitemap.xml
+    let sitemap = `<?xml version="1.0" encoding="UTF-8"?>
+    <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">`;
+
+    // Add Root
+    sitemap += `
+    <url><loc>https://tax.mgks.dev/</loc><changefreq>weekly</changefreq></url>`;
+
+    // Add generated pages
+    for (const cConf of enabledCountries) {
+         const meta = readJSON(path.join(countriesDir, cConf.id, 'meta.json'));
+         for (const lang of meta.availableLanguages) {
+             let url = `https://tax.mgks.dev/${cConf.id}/`;
+             if (lang !== meta.defaultLanguage) url += `${lang}/`;
+             sitemap += `
+    <url><loc>${url}</loc><changefreq>weekly</changefreq></url>`;
+         }
+    }
+    sitemap += `\n</urlset>`;
+    
+    fs.writeFileSync(path.join(DIST_DIR, 'sitemap.xml'), sitemap);
+    
+    // Copy robots.txt
+    if(fs.existsSync(path.join(clientDir, 'robots.txt'))) {
+        fs.copyFileSync(path.join(clientDir, 'robots.txt'), path.join(DIST_DIR, 'robots.txt'));
     }
     
     // Root Redirect
