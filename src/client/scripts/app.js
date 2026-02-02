@@ -212,7 +212,7 @@ function renderGameUI(salary, totalTax, breakdown) {
 // --- DROPDOWNS & NAVIGATION ---
 
 function setupCustomDropdowns() {
-    // 1. Language Switcher
+    // 1. Language Switcher (Standard)
     if (DATA.meta.availableLanguages.length > 1) {
         const langOptions = DATA.meta.availableLanguages.map(lang => ({
             value: lang,
@@ -222,63 +222,73 @@ function setupCustomDropdowns() {
 
         createDropdown('lang-switcher', DATA.currentLanguage.toUpperCase(), langOptions, (newLang) => {
             if (newLang === DATA.currentLanguage) return;
-            
-            // Build URL: /india/hi/?salary=...
             const salaryParam = INPUT.value ? `?salary=${INPUT.value.replace(/,/g, '')}` : '';
             let url = `/${DATA.meta.id}/`;
             if (newLang !== DATA.meta.defaultLanguage) url += `${newLang}/`;
-            
             triggerPageTransition(url + salaryParam);
         });
     }
 
-    // 2. Budget Year Switcher
-    const budgets = DATA.meta.availableBudgets || [DATA.budget.year];
-    const budgetOptions = budgets.map(y => ({
-        value: y,
-        text: y,
-        selected: y === DATA.budget.year
-    }));
+    // 2. Budget Year Switcher (With Transition & UI Refresh)
+    // We wrap this in a render function so we can call it again to update the "Selected" checkmark
+    renderYearDropdown();
 
-    // Initial Subtext Link Setup
-    updateSourceLink();
+    function renderYearDropdown() {
+        const budgets = DATA.meta.availableBudgets || [DATA.budget.year];
+        const budgetOptions = budgets.map(y => ({
+            value: y,
+            text: y,
+            selected: y === DATA.budget.year // This ensures the correct year is highlighted
+        }));
 
-    createDropdown('year-switcher', `YEAR: ${DATA.budget.year}`, budgetOptions, async (year) => {
-        CONTAINER.style.opacity = '0.5';
-        try {
-            const res = await fetch(`/data/countries/${DATA.meta.id}/budgets/${year}.json`);
-            if(res.ok) {
-                const rawBudget = await res.json();
+        createDropdown('year-switcher', `YEAR: ${DATA.budget.year}`, budgetOptions, (year) => {
+            // If clicking the same year, do nothing
+            if (year === DATA.budget.year) return;
 
-                // RE-APPLY LOCALIZATION LABELS
-                if (rawBudget.expenditure && rawBudget.expenditure.categories) {
-                     rawBudget.expenditure.categories = rawBudget.expenditure.categories.map(cat => ({
-                         ...cat,
-                         label: DATA.strings.categories[cat.id] || cat.id
-                     }));
+            // 1. FADE OUT
+            CURTAIN.classList.add('active');
+
+            // 2. WAIT FOR FADE, THEN FETCH
+            setTimeout(async () => {
+                try {
+                    const res = await fetch(`/data/countries/${DATA.meta.id}/budgets/${year}.json`);
+                    if (res.ok) {
+                        const rawBudget = await res.json();
+
+                        // Re-apply localization labels
+                        if (rawBudget.expenditure && rawBudget.expenditure.categories) {
+                            rawBudget.expenditure.categories = rawBudget.expenditure.categories.map(cat => ({
+                                ...cat,
+                                label: DATA.strings.categories[cat.id] || cat.id
+                            }));
+                        }
+
+                        // Update Global State
+                        DATA.budget = rawBudget;
+
+                        // Update Links & UI
+                        updateSourceLink();
+
+                        // Re-calculate if salary exists
+                        const rawVal = INPUT.value.replace(/[^0-9.]/g, '');
+                        if (rawVal) {
+                            runCalculation(parseFloat(rawVal));
+                        }
+
+                        // CRITICAL: Re-render this dropdown to update the "Selected" class
+                        renderYearDropdown();
+                    }
+                } catch (e) {
+                    console.error("Budget fetch failed", e);
+                } finally {
+                    // 3. FADE BACK IN
+                    setTimeout(() => {
+                        CURTAIN.classList.remove('active');
+                    }, 200);
                 }
-
-                DATA.budget = rawBudget;
-
-                // Update Source Link
-                updateSourceLink();
-
-                // Update Dropdown Label
-                const triggerLabel = document.querySelector('#year-switcher .dd-trigger span');
-                if(triggerLabel) triggerLabel.textContent = `YEAR: ${DATA.budget.year}`;
-
-                // Recalculate if salary exists
-                const rawVal = INPUT.value.replace(/[^0-9.]/g, '');
-                if (rawVal) {
-                    runCalculation(parseFloat(rawVal));
-                }
-            }
-        } catch(e) { 
-            console.error("Budget fetch failed", e); 
-        } finally {
-            CONTAINER.style.opacity = '1';
-        }
-    });
+            }, 500); // Wait 500ms for curtain to cover screen
+        });
+    }
 }
 
 function setupCountrySwitcher() {
