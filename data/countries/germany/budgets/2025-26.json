@@ -1,0 +1,36 @@
+{
+  "year": "2025-26",
+  "description": "Union Budget 2025-26",
+  "sourceUrl": "https://www.indiabudget.gov.in/",
+  
+  "taxRules": {
+    "regimeName": "New Regime",
+    "standardDeduction": 75000,
+    "cess": 0.04,
+    "brackets": [
+      { "limit": 400000, "rate": 0 },
+      { "limit": 800000, "rate": 0.05 },
+      { "limit": 1200000, "rate": 0.10 },
+      { "limit": 1600000, "rate": 0.15 },
+      { "limit": 2000000, "rate": 0.20 },
+      { "limit": 2400000, "rate": 0.25 },
+      { "limit": null, "rate": 0.30 }
+    ]
+  },
+
+  "expenditure": {
+    "totalValue": 4821000,
+    "categories": [
+      { "id": "defence", "label": "Defence", "icon": "🛡️", "percent": 0.13 },
+      { "id": "interest", "label": "Interest Payments", "icon": "💸", "percent": 0.19 },
+      { "id": "transport", "label": "Transport & Infra", "icon": "🚧", "percent": 0.11 },
+      { "id": "states", "label": "Transfer to States", "icon": "🤝", "percent": 0.21 },
+      { "id": "welfare", "label": "Welfare & Subsidies", "icon": "🥣", "percent": 0.14 },
+      { "id": "education", "label": "Education", "icon": "🎓", "percent": 0.03 },
+      { "id": "health", "label": "Healthcare", "icon": "🏥", "percent": 0.02 },
+      { "id": "agriculture", "label": "Agriculture", "icon": "🌾", "percent": 0.03 },
+      { "id": "energy", "label": "Energy & IT", "icon": "⚡", "percent": 0.03 },
+      { "id": "admin", "label": "Administration", "icon": "🏛️", "percent": 0.11 }
+    ]
+  }
+}

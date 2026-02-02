@@ -1,0 +1,30 @@
+[
+  {
+    "id": "citizen",
+    "label": "Responsible Citizen",
+    "description": "You contributed to the nation's growth.",
+    "minAmount": 1,
+    "icon": "🇮🇳"
+  },
+  {
+    "id": "infra",
+    "label": "Road Builder",
+    "description": "Your taxes helped pave new highways.",
+    "minAmount": 25000,
+    "icon": "🛣️"
+  },
+  {
+    "id": "guardian",
+    "label": "Guardian",
+    "description": "Significant contribution to national defense.",
+    "minAmount": 100000,
+    "icon": "🛡️"
+  },
+  {
+    "id": "vip",
+    "label": "Top Contributor",
+    "description": "You are among the top tax contributors.",
+    "minAmount": 500000,
+    "icon": "🏆"
+  }
+]

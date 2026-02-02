@@ -1,0 +1,28 @@
+{
+  "lang": "en",
+  "headline": "Where did my tax go?",
+  "subheadline_blink": "PRESS ENTER TO START",
+  "salaryInputLabel": "ENTER ANNUAL SALARY",
+  "cta": "BEGIN",
+  "subtext": "Official Government Data",
+  "disclaimer": "Data sourced from official Budget documents (2026-27). For educational purposes only.",
+  "share": "Share",
+  "citizen_rank": "Citizen Rank",
+  "total_contribution": "Total Contribution",
+  "achievements": "Achievements",
+  "categories": {
+    "defence": "Defence",
+    "interest": "Interest Payments",
+    "transport": "Transport & Infra",
+    "states": "Transfer to States",
+    "welfare": "Welfare Schemes",
+    "agriculture": "Agriculture",
+    "education": "Education",
+    "health": "Healthcare",
+    "energy": "Energy",
+    "it_telecom": "IT & Telecom",
+    "orange_economy": "Culture & Creative",
+    "science_space": "Science & Space",
+    "admin": "Administration"
+  }
+}

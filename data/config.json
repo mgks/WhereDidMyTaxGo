@@ -1,0 +1,14 @@
+{
+  "countries": [
+    {
+      "id": "india",
+      "enabled": true,
+      "default": true
+    },
+    {
+      "id": "us",
+      "enabled": false,
+      "default": false
+    }
+  ]
+}

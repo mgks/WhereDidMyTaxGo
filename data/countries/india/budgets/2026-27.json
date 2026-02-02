@@ -1,0 +1,37 @@
+{
+  "year": "2026-27",
+  "description": "Union Budget 2026-27 (Interim/Full)",
+  "sourceUrl": "https://www.indiabudget.gov.in/doc/eb/allsbe.pdf",
+  "totalValue": 48210000000000,
+  "taxRules": {
+    "regimeName": "New Regime (2026)",
+    "standardDeduction": 75000,
+    "cess": 0.04,
+    "brackets": [
+      { "limit": 400000, "rate": 0 },
+      { "limit": 800000, "rate": 0.05 },
+      { "limit": 1200000, "rate": 0.10 },
+      { "limit": 1600000, "rate": 0.15 },
+      { "limit": 2000000, "rate": 0.20 },
+      { "limit": 2400000, "rate": 0.25 },
+      { "limit": null, "rate": 0.30 }
+    ]
+  },
+  "expenditure": {
+    "categories": [
+      { "id": "defence", "percent": 0.136, "icon": "🛡️" },
+      { "id": "interest", "percent": 0.198, "icon": "💸" },
+      { "id": "transport", "percent": 0.102, "icon": "🛣️" },
+      { "id": "states", "percent": 0.205, "icon": "🤝" },
+      { "id": "welfare", "percent": 0.125, "icon": "🥣" },
+      { "id": "agriculture", "percent": 0.035, "icon": "🌾" },
+      { "id": "education", "percent": 0.028, "icon": "🎓" },
+      { "id": "health", "percent": 0.021, "icon": "🏥" },
+      { "id": "energy", "percent": 0.026, "icon": "⚡" },
+      { "id": "it_telecom", "percent": 0.024, "icon": "💻" },
+      { "id": "orange_economy", "percent": 0.008, "icon": "🎨" },
+      { "id": "science_space", "percent": 0.006, "icon": "🚀" },
+      { "id": "admin", "percent": 0.086, "icon": "🏛️" }
+    ]
+  }
+}

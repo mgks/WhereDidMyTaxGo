@@ -1,0 +1,19 @@
+{
+  "id": "india",
+  "code": "IN",
+  "name": "India",
+  "currency": "INR",
+  "currencySymbol": "₹",
+  "flag": "🇮🇳",
+  "defaultLanguage": "en",
+  "availableLanguages": ["en", "hi"],
+  "defaultBudget": "2026-27",
+  "availableBudgets": ["2025-26", "2026-27"],
+  "background": "background.webp",
+  "theme": {
+    "primary": "#FF9933",
+    "secondary": "#138808",
+    "background": "#1a1a1a"
+  },
+  "enabled": true
+}

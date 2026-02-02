@@ -1,0 +1,19 @@
+{
+  "id": "us",
+  "code": "US",
+  "name": "United States",
+  "currency": "USD",
+  "currencySymbol": "$",
+  "flag": "🇺🇸",
+  "defaultLanguage": "en",
+  "availableLanguages": ["en", "hi"],
+  "defaultBudget": "2025-26",
+  "availableBudgets": ["2025-26"], 
+  "background": "background.webp",
+  "theme": {
+    "primary": "#FF9933",
+    "secondary": "#138808",
+    "background": "#1a1a1a"
+  },
+  "enabled": true
+}
