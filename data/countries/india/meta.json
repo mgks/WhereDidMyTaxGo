@@ -4,9 +4,14 @@
   "name": "India",
   "currency": "INR",
   "currencySymbol": "₹",
+  "locale": "en-IN",
+  "numberFormat": {
+    "system": "indian",
+    "compactSuffixes": ["k", "L", "Cr"]
+  },
   "flag": "🇮🇳",
   "defaultLanguage": "en",
-  "availableLanguages": ["en", "hi"],
+  "availableLanguages": ["en", "hi", "fr"],
   "defaultBudget": "2026-27",
   "availableBudgets": ["2025-26", "2026-27"],
   "background": "background.webp",

@@ -1,0 +1,29 @@
+{
+  "lang": "fr",
+  "headline": "Où est passé mon impôt ?",
+  "subheadline_blink": "Entrez Votre Salaire Pour Commencer",
+  "salaryInputLabel": "Entrez votre salaire annuel",
+  "cta": "Commencer",
+  "subtext": "Données officielles du gouvernement",
+  "disclaimer": "Les chiffres proviennent des documents budgétaires officiels. Uniquement à des fins éducatives.",
+  "share": "Partager",
+  "citizen_rank": "Rang de citoyen",
+  "total_contribution": "Contribution totale",
+  "achievements": "Succès",
+  "subtext_meta": "J'ai compris comment le gouvernement utilise mes impôts. Voir mes détails :",
+  "categories": {
+    "defence": "Défense",
+    "interest": "Intérêts",
+    "transport": "Transport et infrastructures",
+    "states": "Transferts aux États",
+    "welfare": "Programmes de bien-être",
+    "agriculture": "Agriculture",
+    "education": "Éducation",
+    "health": "Santé",
+    "energy": "Énergie",
+    "it_telecom": "Informatique et télécommunications",
+    "orange_economy": "Culture et arts",
+    "science_space": "Science et espace",
+    "admin": "Administration"
+  }
+}

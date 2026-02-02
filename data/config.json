@@ -7,7 +7,7 @@
     },
     {
       "id": "us",
-      "enabled": false,
+      "enabled": true,
       "default": false
     }
   ]

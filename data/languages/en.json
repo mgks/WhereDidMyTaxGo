@@ -1,8 +1,8 @@
 {
   "lang": "en",
   "headline": "Where did my tax go?",
-  "subheadline_blink": "PRESS ENTER TO START",
-  "salaryInputLabel": "ENTER ANNUAL SALARY",
+  "subheadline_blink": "ENTER INCOME TO START",
+  "salaryInputLabel": "YOUR ANNUAL INCOME",
   "cta": "BEGIN",
   "subtext": "Official Government Data",
   "disclaimer": "Data sourced from official Budget documents (2026-27). For educational purposes only.",

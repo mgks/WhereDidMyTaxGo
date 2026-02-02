@@ -4,9 +4,14 @@
   "name": "United States",
   "currency": "USD",
   "currencySymbol": "$",
+  "locale": "en-US",
+  "numberFormat": {
+    "system": "international",
+    "compactSuffixes": ["k", "M", "B"]
+  },
   "flag": "🇺🇸",
   "defaultLanguage": "en",
-  "availableLanguages": ["en", "hi"],
+  "availableLanguages": ["en", "hi", "fr"],
   "defaultBudget": "2025-26",
   "availableBudgets": ["2025-26"], 
   "background": "background.webp",
