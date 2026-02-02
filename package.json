@@ -1,0 +1,24 @@
+{
+  "name": "WhereDidMyTaxGo",
+  "version": "0.0.0",
+  "description": "See how the government spent your tax money.",
+  "scripts": {
+    "build": "node src/build/generate.js",
+    "dev": "node src/build/generate.js && npx serve dist"
+  },
+  "homepage": "https://tax.mgks.dev",
+  "bugs": {
+    "url": "https://github.com/mgks/WhereDidMyTaxGo/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mgks/WhereDidMyTaxGo.git"
+  },
+  "keywords": ["tax", "budget", "visualization", "india"],
+  "author": "Ghazi",
+  "license": "MIT",
+  "devDependencies": {
+    "ncp": "^2.0.0",
+    "serve": "^14.2.0"
+  }
+}
